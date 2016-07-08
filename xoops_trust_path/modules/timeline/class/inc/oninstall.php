@@ -6,7 +6,9 @@
 // 2009-03-15 K.OHWADA
 //=========================================================
 
-if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 //=========================================================
 // class timeline_inc_oninstall
@@ -14,25 +16,23 @@ if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
 class timeline_inc_oninstall extends timeline_base_inc_oninstall
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function timeline_inc_oninstall()
-{
-	$this->timeline_base_inc_oninstall();
-	$this->set_trust_dirname( TIMELINE_TRUST_DIRNAME );
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        parent::__construct();
+        $this->set_trust_dirname(TIMELINE_TRUST_DIRNAME);
+    }
 
-function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new timeline_inc_oninstall();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new timeline_inc_oninstall();
+        }
+        return $instance;
+    }
 
-// --- class end ---
+    // --- class end ---
 }
-
-?>

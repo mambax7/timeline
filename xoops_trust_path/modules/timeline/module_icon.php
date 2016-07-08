@@ -10,19 +10,19 @@
 // $MY_DIRNAME is set by caller
 //---------------------------------------------------------
 
-if ( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 //---------------------------------------------------------
 // timeline files
 //---------------------------------------------------------
-include_once XOOPS_TRUST_PATH.'/modules/timeline/init.php';
+include_once XOOPS_TRUST_PATH . '/modules/timeline/init.php';
 
-timeline_include_once( 'class/base/d3/module_icon.php', $MY_DIRNAME );
+timeline_include_once('class/base/d3/module_icon.php', $MY_DIRNAME);
 
 //---------------------------------------------------------
 // main
 //---------------------------------------------------------
-$timeline_module_icon = new timeline_base_d3_module_icon( $MY_DIRNAME, TIMELINE_TRUST_DIRNAME );
+$timeline_module_icon = new timeline_base_d3_module_icon($MY_DIRNAME, TIMELINE_TRUST_DIRNAME);
 $timeline_module_icon->output_image();
-
-?>

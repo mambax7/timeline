@@ -6,18 +6,20 @@
 // 2009-03-15 K.OHWADA
 //=========================================================
 
-if( ! defined( 'XOOPS_TRUST_PATH' ) ) die( 'not permit' ) ;
+if (!defined('XOOPS_TRUST_PATH')) {
+    die('not permit');
+}
 
 //---------------------------------------------------------
 // timeline files
 //---------------------------------------------------------
-timeline_include_once( 'include/api_timeline.php' );
-timeline_include_once( 'class/base/xoops/param.php' );
-timeline_include_once( 'class/view/timeline.php' );
-timeline_include_once( 'class/main/index.php' );
+timeline_include_once('include/api_timeline.php');
+timeline_include_once('class/base/xoops/param.php');
+timeline_include_once('class/view/timeline.php');
+timeline_include_once('class/main/index.php');
 
-timeline_include_language( 'modinfo.php' );
-timeline_include_language( 'main.php' );
+timeline_include_language('modinfo.php');
+timeline_include_language('main.php');
 
 timeline_include_once_preload_trust();
 timeline_include_once_preload();
@@ -25,13 +27,11 @@ timeline_include_once_preload();
 //=========================================================
 // main
 //=========================================================
-$manage =& timeline_main_index::getInstance( TIMELINE_DIRNAME );
+$manage = timeline_main_index::getInstance(TIMELINE_DIRNAME);
 
-$xoopsOption['template_main'] = TIMELINE_DIRNAME.'_main_index.html' ;
-include XOOPS_ROOT_PATH . "/header.php" ;
+$xoopsOption['template_main'] = TIMELINE_DIRNAME . '_main_index.html';
+include XOOPS_ROOT_PATH . '/header.php';
 
-$xoopsTpl->assign( $manage->main() ) ;
+$xoopsTpl->assign($manage->main());
 
-include( XOOPS_ROOT_PATH . "/footer.php" ) ;
-
-?>
+include(XOOPS_ROOT_PATH . '/footer.php');

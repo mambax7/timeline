@@ -7,39 +7,34 @@
 //=========================================================
 
 // test
-if ( defined( 'FOR_XOOPS_LANG_CHECKER' ) ) {
-	$MY_DIRNAME = 'timeline' ;
+if (defined('FOR_XOOPS_LANG_CHECKER')) {
+    $MY_DIRNAME = 'timeline';
 
-// normal
-} elseif (  isset($GLOBALS['MY_DIRNAME']) ) {
-	$MY_DIRNAME = $GLOBALS['MY_DIRNAME'];
+    // normal
+} elseif (isset($GLOBALS['MY_DIRNAME'])) {
+    $MY_DIRNAME = $GLOBALS['MY_DIRNAME'];
 
-// call by altsys/mytplsadmin.php
-} elseif ( $mydirname ) {
-	$MY_DIRNAME = $mydirname;
+    // call by altsys/mytplsadmin.php
+} elseif ($mydirname) {
+    $MY_DIRNAME = $mydirname;
 
-// probably error
+    // probably error
 } else {
-	echo "not set dirname in ". __FILE__ ." <br />\n";
-	$MY_DIRNAME = 'timeline' ;
+    echo 'not set dirname in ' . __FILE__ . " <br />\n";
+    $MY_DIRNAME = 'timeline';
 }
 
-$constpref = strtoupper( '_MI_' . $MY_DIRNAME. '_' ) ;
+$constpref = strtoupper('_MI_' . $MY_DIRNAME . '_');
 
 // === define begin ===
-if( defined( 'FOR_XOOPS_LANG_CHECKER' ) || !defined($constpref."LANG_LOADED") ) 
-{
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref . 'LANG_LOADED')) {
+    define($constpref . 'LANG_LOADED', 1);
 
-define($constpref."LANG_LOADED" , 1 ) ;
+    // module name
+    define($constpref . 'NAME', 'タイムライン');
+    define($constpref . 'DESC', 'MIT Timeline を利用してタイムラインを表示する');
 
-// module name
-define($constpref."NAME","タイムライン");
-define($constpref."DESC","MIT Timeline を利用してタイムラインを表示する");
-
-// menu
-define($constpref."ADMENU_INDEX","目次");
-
-}
-// === define begin ===
-
-?>
+    // menu
+    define($constpref . 'ADMENU_INDEX', '目次');
+}// === define begin ===
+;
